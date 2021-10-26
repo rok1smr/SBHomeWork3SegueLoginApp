@@ -8,6 +8,11 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,5 +20,41 @@ class LoginViewController: UIViewController {
    
     }
     
+    @IBAction func logInButtonPressed(_ sender: UIButton) {
+        guard userNameTextField.text == "User" else {
+            showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
+            return
+        }
+        
+        guard passwordTextField.text == "Password" else {
+            showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
+            return
+        }
+        
+        userNameTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
+    
+    @IBAction func forgotUserNameButtonPressed(_ sender: UIButton) {
+        showAlert(title: "Your User Name is:", message: "User")
+    }
+    
+    @IBAction func forgorPasswordButtonPressed(_ sender: UIButton) {
+        showAlert(title: "Your Password is:", message: "Password")
+    }
+    
+    
+}
 
+extension LoginViewController {
+    private func showAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.userNameTextField.text = ""
+            self.passwordTextField.text = ""
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
