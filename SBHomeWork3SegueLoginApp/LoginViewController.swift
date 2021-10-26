@@ -7,13 +7,21 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userNameTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    // Метод для скрытия клавиатуры тапом по экрану
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     @IBAction func logInButtonPressed(_ sender: UIButton) {
@@ -25,12 +33,10 @@ class LoginViewController: UIViewController {
         }
         guard passwordTextField.text == "Password" else {
             showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
-            userNameTextField.text = ""
             passwordTextField.text = ""
             return
         }
     }
-    
     
     @IBAction func forgotUserNameButtonPressed(_ sender: UIButton) {
         showAlert(title: "Your User Name is:", message: "User")
@@ -54,7 +60,6 @@ extension LoginViewController {
     private func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.userNameTextField.text = ""
             self.passwordTextField.text = ""
         }
         alert.addAction(okAction)
