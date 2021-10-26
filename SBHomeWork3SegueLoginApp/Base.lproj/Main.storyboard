@@ -81,8 +81,36 @@
                     <view key="view" contentMode="scaleToFill" id="qQ3-qz-7Ll">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, User!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zz2-4J-dvz">
+                                <rect key="frame" x="60" y="264" width="294" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🤘🏻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kI-Jh-s8H">
+                                <rect key="frame" x="168" y="404" width="79" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="73"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJQ-iu-tZc">
+                                <rect key="frame" x="151" y="640" width="121" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log out">
+                                    <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="30"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Gf1-gZ-P4h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zz2-4J-dvz" firstAttribute="leading" secondItem="Gf1-gZ-P4h" secondAttribute="leading" constant="60" id="2hm-ge-tHF"/>
+                            <constraint firstItem="zz2-4J-dvz" firstAttribute="top" secondItem="Gf1-gZ-P4h" secondAttribute="top" constant="220" id="AWI-Rb-9JR"/>
+                            <constraint firstItem="Gf1-gZ-P4h" firstAttribute="trailing" secondItem="zz2-4J-dvz" secondAttribute="trailing" constant="60" id="pcc-AE-qBx"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pE4-qQ-vXw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
