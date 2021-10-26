@@ -16,7 +16,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         userNameTextField.delegate = self
         passwordTextField.delegate = self
-        passwordTextField.returnKeyType = .done
     }
     
     //    функция для очищения текстовых полей
@@ -50,33 +49,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
 
     @IBAction func forgotUserNameButtonPressed(_ sender: UIButton) {
-        showAlert(title: "Your User Name is:", message: "U")
+        showAlert(title: "Your User Name is:", message: "User")
     }
     
     @IBAction func forgorPasswordButtonPressed(_ sender: UIButton) {
-        showAlert(title: "Your Password is:", message: "P")
+        showAlert(title: "Your Password is:", message: "Password")
     }
     
     
     //    функция которая выполняется при нажатии кнопки логин
     @IBAction func loginButtonPressedWithoutSender() {
-        guard userNameTextField.text == "U" else {
+        guard userNameTextField.text == "User" else {
             showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
             resetTextFields()
             return
         }
-        guard passwordTextField.text == "P" else {
+        guard passwordTextField.text == "Password" else {
             showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
             resetTextFields()
             return
         }
+//        то чего так не хватало что бы реализовать переход по кнопке done:
         performSegue(withIdentifier: "toWelcomeScreen", sender: UIButton.self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        guard userNameTextField.text == "U" else { return }
-        guard passwordTextField.text == "P" else { return }
+        guard userNameTextField.text == "User" else { return }
+        guard passwordTextField.text == "Password" else { return }
         welcomeVC.userGreetinLabel = userNameTextField.text
         resetTextFields()
     }
