@@ -33,7 +33,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TuQ-dZ-xcZ">
                                                 <rect key="frame" x="0.0" y="64" width="300" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -44,7 +44,7 @@
                                             <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="40"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="logInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Egb-5Q-4DV"/>
+                                            <action selector="loginButtonPressedWithoutSender" destination="BYZ-38-t0r" eventType="touchUpInside" id="0gE-5s-47Y"/>
                                             <segue destination="Rgx-dI-dWe" kind="presentation" modalPresentationStyle="fullScreen" id="TsG-zr-iM9"/>
                                         </connections>
                                     </button>

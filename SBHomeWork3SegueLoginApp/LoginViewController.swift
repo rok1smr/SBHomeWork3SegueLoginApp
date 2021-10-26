@@ -16,47 +16,72 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         userNameTextField.delegate = self
         passwordTextField.delegate = self
+        passwordTextField.returnKeyType = .done
     }
     
-    // Метод для скрытия клавиатуры тапом по экрану
+    //    функция для очищения текстовых полей
+    private func resetTextFields(){
+        userNameTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
+    //    функция для переключения между текст филдами с помощью клавиатуры
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switchBasedNextTextField(textField)
+        return true
+    }
+    
+    //    свичт кейс для переключения между текст филдами с помощью клавиатуры
+    private func switchBasedNextTextField(_ textField: UITextField) {
+        switch textField {
+        case userNameTextField:
+            passwordTextField.becomeFirstResponder()
+        default:
+            passwordTextField.resignFirstResponder()
+            loginButtonPressedWithoutSender()
+        }
+    }
+    
+    //    скрываем клавиатуру тапом по экрану
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
-    @IBAction func logInButtonPressed(_ sender: UIButton) {
-        guard userNameTextField.text == "User" else {
-            showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
-            userNameTextField.text = ""
-            passwordTextField.text = ""
-            return
-        }
-        guard passwordTextField.text == "Password" else {
-            showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
-            userNameTextField.text = ""
-            passwordTextField.text = ""
-            return
-        }
-    }
-    
+
     @IBAction func forgotUserNameButtonPressed(_ sender: UIButton) {
-        showAlert(title: "Your User Name is:", message: "User")
+        showAlert(title: "Your User Name is:", message: "U")
     }
     
     @IBAction func forgorPasswordButtonPressed(_ sender: UIButton) {
-        showAlert(title: "Your Password is:", message: "Password")
+        showAlert(title: "Your Password is:", message: "P")
+    }
+    
+    
+    //    функция которая выполняется при нажатии кнопки логин
+    @IBAction func loginButtonPressedWithoutSender() {
+        guard userNameTextField.text == "U" else {
+            showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
+            resetTextFields()
+            return
+        }
+        guard passwordTextField.text == "P" else {
+            showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
+            resetTextFields()
+            return
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        guard userNameTextField.text == "User" else { return }
-        guard passwordTextField.text == "Password" else { return }
+        guard userNameTextField.text == "U" else { return }
+        guard passwordTextField.text == "P" else { return }
         welcomeVC.userGreetinLabel = userNameTextField.text
-        userNameTextField.text = ""
-        passwordTextField.text = ""
+        resetTextFields()
     }
 }
 
+// экстеншн для алертов
 extension LoginViewController {
     private func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
