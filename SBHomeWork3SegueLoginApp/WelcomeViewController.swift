@@ -9,17 +9,16 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
+    @IBOutlet weak var dynamicUserNameLabel: UILabel!
     
-    @IBOutlet weak var greetingLabel: UILabel!
+    var userGreetinLabel: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        dynamicUserNameLabel.text = userGreetinLabel
     }
     
-
     @IBAction func logOutButtonPressed(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
 }

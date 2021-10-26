@@ -12,27 +12,23 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-   
     }
     
     @IBAction func logInButtonPressed(_ sender: UIButton) {
         guard userNameTextField.text == "User" else {
             showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
+            userNameTextField.text = ""
+            passwordTextField.text = ""
             return
         }
-        
         guard passwordTextField.text == "Password" else {
             showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
+            userNameTextField.text = ""
+            passwordTextField.text = ""
             return
         }
-        
-        userNameTextField.text = ""
-        passwordTextField.text = ""
     }
     
     
@@ -44,7 +40,14 @@ class LoginViewController: UIViewController {
         showAlert(title: "Your Password is:", message: "Password")
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        guard userNameTextField.text == "User" else { return }
+        guard passwordTextField.text == "Password" else { return }
+        welcomeVC.userGreetinLabel = userNameTextField.text
+        userNameTextField.text = ""
+        passwordTextField.text = ""
+    }
 }
 
 extension LoginViewController {
