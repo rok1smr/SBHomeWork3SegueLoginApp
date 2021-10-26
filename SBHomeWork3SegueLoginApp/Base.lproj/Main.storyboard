@@ -45,7 +45,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="logInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Egb-5Q-4DV"/>
-                                            <segue destination="Rgx-dI-dWe" kind="presentation" id="TsG-zr-iM9"/>
+                                            <segue destination="Rgx-dI-dWe" kind="presentation" modalPresentationStyle="fullScreen" id="TsG-zr-iM9"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XRP-px-vC9">
@@ -94,11 +94,11 @@
             <objects>
                 <viewController id="Rgx-dI-dWe" customClass="WelcomeViewController" customModule="SBHomeWork3SegueLoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qQ3-qz-7Ll">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-B1-YCW">
-                                <rect key="frame" x="119" y="234.5" width="176" height="373.5"/>
+                                <rect key="frame" x="119" y="261.5" width="176" height="373.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QVU-gk-ZIR">
                                         <rect key="frame" x="0.0" y="0.0" width="176" height="116"/>

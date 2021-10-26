@@ -33,6 +33,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         guard passwordTextField.text == "Password" else {
             showAlert(title: "Wrong User Name or Password", message: "Please check your entries")
+            userNameTextField.text = ""
             passwordTextField.text = ""
             return
         }
