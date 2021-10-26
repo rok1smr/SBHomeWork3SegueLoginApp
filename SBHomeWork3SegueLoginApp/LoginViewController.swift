@@ -47,7 +47,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-
     @IBAction func forgotUserNameButtonPressed(_ sender: UIButton) {
         showAlert(title: "Your User Name is:", message: "User")
     }
@@ -55,7 +54,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func forgorPasswordButtonPressed(_ sender: UIButton) {
         showAlert(title: "Your Password is:", message: "Password")
     }
-    
     
     //    функция которая выполняется при нажатии кнопки логин
     @IBAction func loginButtonPressedWithoutSender() {
@@ -69,7 +67,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             resetTextFields()
             return
         }
-//        то чего так не хватало что бы реализовать переход по кнопке done:
+        //        то чего так не хватало что бы реализовать переход по кнопке done:
         performSegue(withIdentifier: "toWelcomeScreen", sender: UIButton.self)
     }
     
