@@ -70,6 +70,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             resetTextFields()
             return
         }
+        performSegue(withIdentifier: "toWelcomeScreen", sender: UIButton.self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
