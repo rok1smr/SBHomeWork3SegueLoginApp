@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ynh-ZK-V1g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="DMN-Ba-3ul">
-                                <rect key="frame" x="42.5" y="313" width="329" height="270.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DMN-Ba-3ul">
+                                <rect key="frame" x="52.5" y="333" width="309" height="230.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xZf-cw-NUk">
-                                        <rect key="frame" x="14.5" y="0.0" width="300" height="98"/>
+                                        <rect key="frame" x="4.5" y="0.0" width="300" height="98"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nZz-eI-YZW">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
@@ -38,7 +39,8 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6l-Eh-rka">
-                                        <rect key="frame" x="99" y="138" width="131" height="61.5"/>
+                                        <rect key="frame" x="89" y="118" width="131" height="61.5"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Log In">
                                             <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="40"/>
@@ -48,8 +50,8 @@
                                             <segue destination="Rgx-dI-dWe" kind="presentation" identifier="toWelcomeScreen" modalPresentationStyle="fullScreen" id="TsG-zr-iM9"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XRP-px-vC9">
-                                        <rect key="frame" x="0.0" y="239.5" width="329" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XRP-px-vC9">
+                                        <rect key="frame" x="5" y="199.5" width="299" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFD-1j-jMG">
                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="31"/>
@@ -60,7 +62,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTJ-JI-xlI">
-                                                <rect key="frame" x="179.5" y="0.0" width="149.5" height="31"/>
+                                                <rect key="frame" x="157.5" y="0.0" width="141.5" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password?"/>
                                                 <connections>
@@ -70,6 +72,10 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="XRP-px-vC9" firstAttribute="leading" secondItem="DMN-Ba-3ul" secondAttribute="leading" constant="5" id="WCH-Tw-cbg"/>
+                                    <constraint firstAttribute="trailing" secondItem="XRP-px-vC9" secondAttribute="trailing" constant="5" id="q3k-Jp-XrT"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -81,6 +87,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LsI-ei-FjY"/>
                     <connections>
+                        <outlet property="loginButton" destination="y6l-Eh-rka" id="Ce5-Rp-KLX"/>
                         <outlet property="passwordTextField" destination="TuQ-dZ-xcZ" id="59M-wm-MMM"/>
                         <outlet property="userNameTextField" destination="nZz-eI-YZW" id="qj8-c6-wfd"/>
                     </connections>
@@ -145,32 +152,19 @@
                     </view>
                     <connections>
                         <outlet property="dynamicUserNameLabel" destination="hMM-x2-ifK" id="Qv0-fq-HsX"/>
+                        <segue destination="GOv-BJ-oCh" kind="unwind" identifier="unwindToLogin" unwindAction="unwind:" id="ZgU-Nq-dtt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pE4-qQ-vXw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="GOv-BJ-oCh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1724.6376811594205" y="93.75"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6Oe-rS-OZf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ynh-ZK-V1g" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZDL-th-EPD">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2Bw-Mo-jXI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HYO-3n-IlI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
-        </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

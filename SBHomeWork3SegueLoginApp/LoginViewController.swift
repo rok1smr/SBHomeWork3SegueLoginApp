@@ -11,12 +11,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.layer.cornerRadius = 10
         userNameTextField.delegate = self
         passwordTextField.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil);
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
     }
+    
+//    implementation of unwind segue in the destination VC
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    }
+    
+//    functions neede to shift the contents of the screen when keyboard appears
+    @objc func keyboardWillShow(sender: NSNotification) {
+         self.view.frame.origin.y = -50 // Move view 150 points upward
+    }
+    @objc func keyboardWillHide(sender: NSNotification) {
+         self.view.frame.origin.y = 0 // Move view to original position
+    }
+    
     
     //    функция для очищения текстовых полей
     private func resetTextFields(){
@@ -71,6 +91,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "toWelcomeScreen", sender: UIButton.self)
     }
     
+//    описание сегвея который происходит при нажатии на кнопку логин
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         guard userNameTextField.text == "User" else { return }
